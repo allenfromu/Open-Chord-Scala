@@ -6,5 +6,14 @@
   * For mac, run command line: **brew install sbt** from terminal
   * For more instructions about installing SBT on any type of OS, visit <a href="http://www.scala-sbt.org/release/tutorial/Setup.html" target="_blank">this link</a>
 2. Clone the project from repo: https://github.com/allenfromu/Open_Chord_Scala.git
-3. 
+3. Go to the Open_Chord_Scala directory from terminal and then run command: ""sbt run""
+4. After that, you will be prompted to provide an Actor system name, an Actor name and a port number.
+  * **For instance:**
+  * ➜  Open_Chord_Scala git:(master) sbt run
+  * [info] Loading global plugins from /Users/zepengzhao/.sbt/0.13/plugins
+  * [info] Set current project to Open_Chord_Scala (in build file:/Users/zepengzhao/hello/Open_Chord_Scala/)
+  * [info] Running service.Main 
+  * Actor System Name:America 
+  * Actor Name:Utah
+  * Port Number:2015
   
