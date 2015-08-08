@@ -24,7 +24,7 @@
     Actor Name:Utah
     Port Number:2015
  ```
-  <br>By providing the names and port number, the process you just created represnets a unique node with a unique URL, like the example above, 
+  <br>By providing the names and port number, the process you just created represents a unique node with a unique URL, like the example above, 
  <br>I had created a chord with a unique URL: **akka.tcp://America@192.168.137.3:2015/user/Utah**
 
  * After you create more than one chord, a chord can join in other chords to form a DHT. 
@@ -50,7 +50,7 @@
     5. To display the predecessor, type 'PRE' from console.
   
 ##Import the project to eclipse
- * Download <a href="http://www.eclipse.org" target="_blank">Eclipse</a> in your computer if you don't don't have it.
+ * Download <a href="http://www.eclipse.org" target="_blank">Eclipse</a> in your computer if you don't have it.
  * Add sbteclipse to your plugin definition file (or create one if doesn't exist). You can use either:
   * The global file (for version 0.13 and up) at ~/.sbt/0.13/plugins/plugins.sbt
   * The project-specific file at PROJECT_DIR/project/plugins.sbt
