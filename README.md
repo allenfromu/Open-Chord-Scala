@@ -24,12 +24,12 @@
  <br>To join in a system from an existing node, from the console, type 'join'. And provide the detailed information of the existing node.
  <br>**Below is an example**
 ```
- <br> >join
- <br>  Actor System Name:America
- <br>  Host Name:192.168.137.3
- <br>  Port Number:2015
- <br>  Actor Name:Utah
- <br>>
+ >join
+ Actor System Name:America
+ Host Name:192.168.137.3
+ Port Number:2015
+ Actor Name:Utah
+>
 ```
 
 6. More commands from the console for users to control the DHT.
