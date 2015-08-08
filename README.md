@@ -4,7 +4,7 @@
 ##compile and run the project using <a href="http://www.scala-sbt.org" target="_blank">SBT</a>(Simple Build Tool)
 1. Install SBT on your computer.
   * For mac, run command line: **brew install sbt** from terminal
-  * For more instructions about install SBT on any type of OS, visit <a href="http://www.scala-sbt.org/release/tutorial/Setup.html" target="_blank">this link</a>
+  * For more instructions about installing SBT on any type of OS, visit <a href="http://www.scala-sbt.org/release/tutorial/Setup.html" target="_blank">this link</a>
 2. Clone the project from repo: https://github.com/allenfromu/Open_Chord_Scala.git
 3. 
   
