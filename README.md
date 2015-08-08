@@ -20,7 +20,7 @@
   <br>By providing the names and port number, the process you just created represnets a unique node with a unique URL, like the example above, 
  <br>I had created a chord with a unique url: **akka.tcp://America@192.168.137.3:2015/user/Utah**
 
-5.After you create more than one chord, a chord can join in other chords to form a DHT. 
+5. After you create more than one chord, a chord can join in other chords to form a DHT. 
  <br>To join in a system from a existing node, from the console, type join. And provide the detail information of the existing node.
  <br>**Below is an example**
  <br> >join
