@@ -38,7 +38,6 @@ class ChordImpl(val system_name:String="RemoteSystem",val actor_name:String="Mas
   private val logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME)
 //  private val configFile = getClass.getClassLoader.getResource("chord.config").getFile
 //  private val config = ConfigFactory.parseFile(new File(configFile))
-
   private val entries = new Entries()
   private val backupEntries = new BackupEntries()
   private val responses = new Responses()
@@ -60,32 +59,11 @@ class ChordImpl(val system_name:String="RemoteSystem",val actor_name:String="Mas
     net_ip = "127.0.0.1"
     logger.info("Didn't connect to the internet, using local ip address:127.0.0.1")
   }
-  private val config = ConfigFactory.parseString("""
-    akka {
-    loglevel = "INFO"
-    log-config-on-start = "off"
-    debug {
-    receive = on
-    }
-    actor {
-    provider = "akka.remote.RemoteActorRefProvider"
-    }
-    remote {
-    enabled-transports = ["akka.remote.netty.tcp"]
-    netty.tcp {
-    hostname = """+net_ip +
-    """
-      port = """+port+
-    """
-    }
-    log-sent-messages = on
-    log-received-messages = on
-   }
-  }
-  """)
-  private val system = ActorSystem(system_name , ConfigFactory.load(config))  
+ // private val config = 
+  private val system = ActorSystem(system_name , ConfigFactory.load(ConfigLoader.load(net_ip,port)))  
   //e.g: "akka.tcp://RemoteSystem@192.168.1.14:2015/user/server"
   private val localURL = "akka.tcp://"+system_name+"@"+net_ip+":"+port+"/user/"+actor_name
+  println(localURL)
   private val nodeID = HashFunction.createID(localURL.getBytes)
   private val localNode = new Node(nodeID,localURL)  
   private val successorList = new SuccessorList(localNode)
@@ -97,9 +75,6 @@ class ChordImpl(val system_name:String="RemoteSystem",val actor_name:String="Mas
   private val master =system.actorOf(Props(classOf[Chord_Actor],localNode,references,entries,responses,backupEntries),name = actor_name)
   
   
-  
-  
-
   //val initialDelay = Duration(50, TimeUnit.SECONDS)
   val interval = Duration(100, TimeUnit.SECONDS)
   implicit val executor = system.dispatcher
@@ -110,7 +85,7 @@ class ChordImpl(val system_name:String="RemoteSystem",val actor_name:String="Mas
   system.scheduler.schedule(Duration(80, TimeUnit.SECONDS), interval, new Runnable{def run(){examineReferences()}})
 
   
-  /*
+  /**
    * Joining a network by calling this function.
    * @arg: node:Node, join a network from the provide node
    */
@@ -138,7 +113,7 @@ class ChordImpl(val system_name:String="RemoteSystem",val actor_name:String="Mas
   }
   
   
- /* 
+ /**
   * to initialize finger table, not used in practice 
   */
   def init_finger_table(a:ActorSelection){
@@ -155,7 +130,7 @@ class ChordImpl(val system_name:String="RemoteSystem",val actor_name:String="Mas
   }
 
   
-  /*
+  /**
    * leave the network, not used
    */
   def leaveNetwork(){
@@ -166,7 +141,7 @@ class ChordImpl(val system_name:String="RemoteSystem",val actor_name:String="Mas
     
   }
   
-  /*
+  /**
    * not used
    */
   def passEntriesToSuccessor(){
@@ -180,7 +155,7 @@ class ChordImpl(val system_name:String="RemoteSystem",val actor_name:String="Mas
   }
   
   
-  /*
+  /**
    * waiting until the predecessor is retrieved, pass the node to inform the others
    */
   def update_others(){
@@ -192,7 +167,7 @@ class ChordImpl(val system_name:String="RemoteSystem",val actor_name:String="Mas
     system.actorSelection(references.getPredecessor.getURL) ! update_finger_table(localNode,1)
   }
   
-  /*
+  /**
    * Periodically check and update the predecessor and successor by calling this function
    * if the predecessor is dead, remove it and inherit its entries
    * if successor is alive, and entries is renewed, back up entries to successor.
@@ -230,7 +205,7 @@ class ChordImpl(val system_name:String="RemoteSystem",val actor_name:String="Mas
     }     
   }
   
-  /*
+  /**
    * check a node's liveness by sending a message and waiting for a future
    * if the future times out, consider the node as dead node, return false
    * otherwise, return true.
@@ -253,7 +228,7 @@ class ChordImpl(val system_name:String="RemoteSystem",val actor_name:String="Mas
       alive  
   }
   
-  /*
+  /**
    * Periodically examing the liveness of nodes from reference.
    * and rip off dead nodes if any is found
    */
@@ -267,7 +242,7 @@ class ChordImpl(val system_name:String="RemoteSystem",val actor_name:String="Mas
    
   }
   
-  /*
+  /**
    * provided a target node from references, test the liveness of the target
    * if target is dead, rip it off the reference table
    */
@@ -289,7 +264,7 @@ class ChordImpl(val system_name:String="RemoteSystem",val actor_name:String="Mas
   }
   
   
-  /*
+  /**
    * periodically stabilize the reference table. mainly make sure that the local node id is between 
    * that of the successor's and the predecessor's.
    */
@@ -324,7 +299,7 @@ class ChordImpl(val system_name:String="RemoteSystem",val actor_name:String="Mas
       }   
   }
   
-  /*
+  /**
    * test the liveness of a target node, if target is alive add it to reference
    */
   private def TestAndAddNode(target:Node){
@@ -337,7 +312,7 @@ class ChordImpl(val system_name:String="RemoteSystem",val actor_name:String="Mas
   }
   
   
-  /*
+  /**
    * periodically call this function to update the finger table
    */
   def fix_fingers(){
@@ -353,7 +328,7 @@ class ChordImpl(val system_name:String="RemoteSystem",val actor_name:String="Mas
     }
   }
   
-  /*
+  /**
    * Periodically balance the loads of the entries table in case that new nodes come in
    * the new node can carry some of the payloads
    */
@@ -368,7 +343,7 @@ class ChordImpl(val system_name:String="RemoteSystem",val actor_name:String="Mas
     }    
   }
   
-  /*
+  /**
    * providing a key and lookup the corresponded entry set
    */
   def lookup(key:ID):Set[Entry]={
@@ -390,7 +365,7 @@ class ChordImpl(val system_name:String="RemoteSystem",val actor_name:String="Mas
   
   
   
-  /*
+  /**
    * find a node that is responsible for an entry and upload the entry to this node
    */
   def upload(toUpload:Entry){
