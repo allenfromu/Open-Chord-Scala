@@ -62,4 +62,4 @@ addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")
  
 ##Supports and further improvement.
 This is project can't be done without the support of my supervisors and advisors, <a href="http://www.cs.utah.edu/~ganesh/" target="_blank">Ganesh Gopalakrishnan</a> and Mohammed S. Al-Mahfoudh, and the help from my partner Heath J. French.
-<br>I am still working on it to make this project bettter, and I like to hear any advice to help make it better. Any advice is invaluable, please email me at ##allenzhaofromu@gmail.com## if you think any aspect of the project can be make better.
+<br>I am still working on it to make this project bettter, and I like to hear any advice to help make it better. You advice is invaluable for me, please email me at allenzhaofromu@gmail.com if you think any aspect of the project can be made better.
