@@ -9,14 +9,15 @@
 3. Go to the Open_Chord_Scala directory from terminal and then run command: ""sbt run""
 4. After that, you will be prompted to provide an Actor system name, an Actor name and a port number.
   <br> **For instance:**
-  <br> ➜  Open_Chord_Scala git:(master) sbt run
-  <br> [info] Loading global plugins from /Users/zepengzhao/.sbt/0.13/plugins
-  <br> [info] Set current project to Open_Chord_Scala (in build file:/Users/zepengzhao/hello/Open_Chord_Scala/)
-  <br> [info] Running service.Main 
-  <br> Actor System Name:America 
-  <br> Actor Name:Utah
-  <br> Port Number:2015
-  <br>
+```
+    ➜  Open_Chord_Scala git:(master) sbt run
+    [info] Loading global plugins from /Users/zepengzhao/.sbt/0.13/plugins
+    [info] Set current project to Open_Chord_Scala (in build file:/Users/zepengzhao/hello/Open_Chord_Scala/)
+    [info] Running service.Main 
+    Actor System Name:America 
+    Actor Name:Utah
+    Port Number:2015
+ ```
   <br>By providing the names and port number, the process you just created represnets a unique node with a unique URL, like the example above, 
  <br>I had created a chord with a unique URL: **akka.tcp://America@192.168.137.3:2015/user/Utah**
 
