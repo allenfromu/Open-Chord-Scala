@@ -21,7 +21,7 @@
  <br>I had created a chord with a unique url: **akka.tcp://America@192.168.137.3:2015/user/Utah**
 
 5. After you create more than one chord, a chord can join in other chords to form a DHT. 
- <br>To join in a system from a existing node, from the console, type join. And provide the detail information of the existing node.
+ <br>To join in a system from an existing node, from the console, type 'join'. And provide the detailed information of the existing node.
  <br>**Below is an example**
  <br> >join
  <br>  Actor System Name:America
@@ -29,5 +29,16 @@
  <br>  Port Number:2015
  <br>  Actor Name:Utah
  <br>>
+
+6. More commands from the console for users to control the DHT.
+  * To upload key-value pair from a chord to a system, type 'upload' from console.
+  * To lookup the value of a given key, type 'lookup' from console.
+  * To display the data in a current node, a serials of commands is provided as below.
+    1. To look up entries(key-value pair) in a current node, type 'entries' from console
+    2. To display the successor list, type 'SL' from console.
+    3. To display the finger table, type 'FT' from console.
+    4. To display the successor, type 'SUC' from console.
+    5. To display the predecessor, type 'PRE' from console.
+  
 
   
