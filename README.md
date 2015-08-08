@@ -16,7 +16,8 @@
   <br> Actor System Name:America 
   <br> Actor Name:Utah
   <br> Port Number:2015
+  <br>
   <br>By providing the names and port number, the process you just created represnets a unique node with a unique URL, like the example above, 
- <br>I had created a chord with a unique url: akka.tcp://America@192.168.137.3:2015/user/Utah
+ <br>I had created a chord with a unique url: *akka.tcp://America@192.168.137.3:2015/user/Utah*
 
   
