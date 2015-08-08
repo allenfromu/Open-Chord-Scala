@@ -40,5 +40,21 @@
     4. To display the successor, type 'SUC' from console.
     5. To display the predecessor, type 'PRE' from console.
   
+##Import the project to eclipse
+1. Download <a href="http://www.eclipse.org" target="_blank">Eclipse</a> in your computer if you don't don't have it.
+2. Add sbteclipse to your plugin definition file (or create one if doesn't exist). You can use either:
+  * The global file (for version 0.13 and up) at ~/.sbt/0.13/plugins/plugins.sbt
+  * The project-specific file at PROJECT_DIR/project/plugins.sbt
+<br>For the latest version:
+```
+addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")
 
+```
+
+3. In the Open_Chord_Scala directory use command:
+
+```
+->sbt eclipse
+```
+4. From the eclipse IDE, import the project to workspace, File->Import->Existing Projects into Workspace.
   
