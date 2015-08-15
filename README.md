@@ -70,7 +70,7 @@ addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")
   * In eclipse, right click the Open_Chord_Scala project,go Build Paths -> Add External Archives ...
  * Note that if you want to run it from eclipse, main function is in **src/main/scala/service/Main.scala**
  
-##Fault Tolerance Testing
+##Fault Tolerance and Testing
  * For Testing I am running the following chords in a same computer.
   ```
    Below is the URL of the chords I run for fault tolerance testing
@@ -125,7 +125,7 @@ addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")
  >
  ```
  Apparently, the key-value pair is uploaded to chord 3(Australia)
-* Now I am going to keep the chord 3 from the system, and its successor should backup its entries for it.
+* Now I am going to kill chord 3 from the system, and its successor should backup its entries for it.
  * First, Chord 3 should be removed from the system, let's lookup the successor list of Chord 2(China)
    ```
    >SL
@@ -141,7 +141,7 @@ addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")
  Hey Jude
  >
  ```
- Apparently, it is still in the system.
+ Great, it is still in the system.
   * Theoretically, this key-value pair should go to the successor of Australia, which is America, and yes, when I lookup the entries of America, I got this:
   ```
   >entries
