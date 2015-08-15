@@ -101,7 +101,7 @@ addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")
   akka.tcp://China@155.99.174.68:2016/user/Beijing
   >
   ```
-  **By Observation, you can see that those nodes form a ring Chord 1(America)->Chord 2(China)->Chord 3(Australia)->Chord 1(America)**
+  **By Observation, you can see that those nodes form a ring:** Chord 1(America)->Chord 2(China)->Chord 3(Australia)->Chord 1(America)
 
 * Now I do the following operation from the console of Chord 1.
 
