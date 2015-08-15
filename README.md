@@ -103,6 +103,50 @@ addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")
   ```
   **By Observation, you can see that those nodes form a ring Chord 1(America)->Chord 2(China)->Chord 3(Australia)->Chord 1(America)**
 
+* Now I do the following operation from the console of Chord 1
+ ```
+  >upload
+  Key:mp3
+  value:Hey Jude
+  >lookup
+  Key:mp3
+  Hey Jude
+  >entries
+  >
+ ```
+ Apparently, 'mp3'->'Hey Jude' key-value pair is not uploaded to the chord 1.
+* Now lookup the entries table of Chord 3
+ ```
+ >entries
+ key:mp3, value:Hey Jude
+ >
+ ```
+ Apparently, the key-value pair is uploaded to chord 3(Australia)
+* Now I am going to keep the chord 3 from the system, and its successor should backup its entries for it.
+ * First, Chord 3 should be removed from the system, let's lookup the successor list of Chord 2(China)
+   ```
+   >SL
+   akka.tcp://America@155.99.174.68:2015/user/Utah
+   >
+   ```
+  Apparently, Australia is removed from the system.
+ 
+  * How about the key-value entry? Let's look it up from console of Chord 2(China)
+  ```
+ >lookup
+ Key:mp3
+ Hey Jude
+ >
+ ```
+ Apparently, it is still in the system.
+  * Theoretically, this key-value pair should go to the successor of Australia, which is America, and yes, when I lookup the entries of America, I got this:
+  ```
+  >entries
+  key:mp3, value:Hey Jude
+  >
+  ```
+ 
+ 
 ##Supports and further improvement.
 This is project can't be done without the support of my supervisors and advisors, <a href="http://www.cs.utah.edu/~ganesh/" target="_blank">Ganesh Gopalakrishnan</a> and <a href="https://sites.google.com/site/mohammedmahfoudh/home" target="_blank"> Mohammed S. Al-Mahfoudh</a>. Also, thanks to the help from my partner Heath J. French.
 <br>I am still working on it to make this project bettter, and I like to hear any advice to help make it better. Your advice is invaluable for me, please email me at allenzhaofromu@gmail.com if you think any aspect of the project can be made better.
