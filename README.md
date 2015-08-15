@@ -103,7 +103,8 @@ addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")
   ```
   **By Observation, you can see that those nodes form a ring Chord 1(America)->Chord 2(China)->Chord 3(Australia)->Chord 1(America)**
 
-* Now I do the following operation from the console of Chord 1
+* Now I do the following operation from the console of Chord 1.
+
  ```
   >upload
   Key:mp3
@@ -115,7 +116,9 @@ addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")
   >
  ```
  Apparently, 'mp3'->'Hey Jude' key-value pair is not uploaded to the chord 1.
+ 
 * Now lookup the entries table of Chord 3
+
  ```
  >entries
  key:mp3, value:Hey Jude
