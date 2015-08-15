@@ -21,7 +21,7 @@ class BackupEntries {
     re
   }
   
-  /*
+  /**
    * set back up entries of a node.
    */
   def setEntries(node:Node, entr:List[Set[Entry]]) ={ 
@@ -35,7 +35,7 @@ class BackupEntries {
     entr.foreach { x => x.foreach { y => logger.info(y.getKey()+":"+y.getValue())} }
   }
   
-  /*
+  /**
    * remove the backup entries for node and return the backup entries of this node
    */
   def remove(node:Node):List[Set[Entry]] = {
@@ -51,4 +51,5 @@ class BackupEntries {
     //backup.foreach { x => x.foreach { y => logger.info(y.getKey()+":"+y.getValue())} }
     backup
   }
+  
 }

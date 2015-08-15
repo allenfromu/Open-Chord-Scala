@@ -166,7 +166,7 @@ class Chord_Actor(val node:Node,val ref:References,val e:Entries,val resp:Respon
       }      
     }
     
-    /*
+    /**
      * Recursively find the successor that is responsible for request req
      * and then return the requested node with a response message.
      */
