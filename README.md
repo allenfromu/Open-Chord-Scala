@@ -80,21 +80,21 @@ addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")
    Chord Three: akka.tcp://Australia@155.99.174.68:2017/user/Sydney
   ```
  * Here is the successor lists for each node
-  **Successor List for Chord One**
+  * **Successor List for Chord One**
   ```
   >SL
   akka.tcp://China@155.99.174.68:2016/user/Beijing
   akka.tcp://Australia@155.99.174.68:2017/user/Sydney
   >
   ```
-  **Successor List for Chord Two**
+  * **Successor List for Chord Two**
   ```
   >SL
   akka.tcp://Australia@155.99.174.68:2017/user/Sydney
   akka.tcp://America@155.99.174.68:2015/user/Utah
   >
   ```
-  **Successor List for Chord Three**
+  * **Successor List for Chord Three**
   ```
   >SL
   akka.tcp://America@155.99.174.68:2015/user/Utah
