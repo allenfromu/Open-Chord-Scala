@@ -70,6 +70,39 @@ addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")
   * In eclipse, right click the Open_Chord_Scala project,go Build Paths -> Add External Archives ...
  * Note that if you want to run it from eclipse, main function is in **src/main/scala/service/Main.scala**
  
+##Fault Tolerance Testing
+ * For Testing I am running the following chords in a same computer.
+  ```
+   Below is the URL of the chords I run for fault tolerance testing
+   
+   Chord One:   akka.tcp://America@155.99.174.68:2015/user/Utah
+   Chord Two:   akka.tcp://China@155.99.174.68:2016/user/Beijing
+   Chord Three: akka.tcp://Australia@155.99.174.68:2017/user/Sydney
+  ```
+ * Here is the successor lists for each node
+  **Successor List for Chord One**
+  ```
+  >SL
+  akka.tcp://China@155.99.174.68:2016/user/Beijing
+  akka.tcp://Australia@155.99.174.68:2017/user/Sydney
+  >
+  ```
+  **Successor List for Chord Two**
+  ```
+  >SL
+  akka.tcp://Australia@155.99.174.68:2017/user/Sydney
+  akka.tcp://America@155.99.174.68:2015/user/Utah
+  >
+  ```
+  **Successor List for Chord Three**
+  ```
+  >SL
+  akka.tcp://America@155.99.174.68:2015/user/Utah
+  akka.tcp://China@155.99.174.68:2016/user/Beijing
+  >
+  ```
+  **By Observation, you can see that those nodes form a ring Chord 1(America)->Chord 2(China)->Chord 3(Australia)->Chord 1(America)**
+
 ##Supports and further improvement.
 This is project can't be done without the support of my supervisors and advisors, <a href="http://www.cs.utah.edu/~ganesh/" target="_blank">Ganesh Gopalakrishnan</a> and <a href="https://sites.google.com/site/mohammedmahfoudh/home" target="_blank"> Mohammed S. Al-Mahfoudh</a>. Also, thanks to the help from my partner Heath J. French.
 <br>I am still working on it to make this project bettter, and I like to hear any advice to help make it better. Your advice is invaluable for me, please email me at allenzhaofromu@gmail.com if you think any aspect of the project can be made better.
