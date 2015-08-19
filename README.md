@@ -124,7 +124,7 @@ addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")
  key:mp3, value:Hey Jude
  >
  ```
- Apparently, the key-value pair is uploaded to chord 3(Australia)
+ As far as what we can see, the key-value pair is uploaded to chord 3(Australia)
 * Now I am going to kill chord 3 from the system, and its successor should backup its entries for it.
  * First, Chord 3 should be removed from the system, let's lookup the successor list of Chord 2(China)
    ```
@@ -132,7 +132,7 @@ addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")
    akka.tcp://America@155.99.174.68:2015/user/Utah
    >
    ```
-  Apparently, Australia is removed from the system.
+  Obviously, Australia is removed from the system.
  
   * How about the key-value entry? Let's look it up from console of Chord 2(China)
   ```
@@ -151,5 +151,5 @@ addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")
  
  
 ##Supports and further improvement.
-This is project can't be done without the support of my supervisors and advisors, <a href="http://www.cs.utah.edu/~ganesh/" target="_blank">Ganesh Gopalakrishnan</a> and <a href="https://sites.google.com/site/mohammedmahfoudh/home" target="_blank"> Mohammed S. Al-Mahfoudh</a>. Also, thanks to the help from my partner Heath J. French.
+This is project can't be done without the support of my supervisors and advisors, <a href="http://www.cs.utah.edu/~ganesh/" target="_blank">Ganesh Gopalakrishnan</a> and <a href="https://sites.google.com/site/mohammedmahfoudh/home" target="_blank"> Mohammed S. Al-Mahfoudh</a>. Also, thanks to the contribution from my partner Heath J. French.
 <br>I am still working on it to make this project bettter, and I like to hear any advice to help make it better. Your advice is invaluable for me, please email me at allenzhaofromu@gmail.com if you think any aspect of the project can be made better.
